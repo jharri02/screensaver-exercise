@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {  
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;    
+            align-items: center;
+            height: 100vh;
+            transition: background-color 2s ease-in-out;
+        }
+        .container{
+            display: flex;
+            justify-content: baseline;
+            align-items: center;
+        }
+        .footer-text{
+            text-align:center;
+            color:black;
+            font-size: 18px;
+            font-family:'Courier New', Courier, monospace;
+            margin-top: 20px;
+        }
+    .animated-div {
+        width: 300px;
+        height: 300px;
+        margin: 50px;
+    }
+    @media (max-width: 599px) {
+    .animated-div {
+        border-radius: 50%;
+        animation: pulse 3s infinite ease-in-out, rotate 1s infinite linear;
+    }
+    @keyframes rotate{
+        0% { transform: rotate(0deg); }
+        100% {transform: rotate(360deg);}
+    }
+
+    @keyframes pulse {
+        0%, 100% {border-radius: 50%; }
+        50% {border-radius: 0%;}
+    }
+
+}
+
+@media (min-width: 600px) and (max-width: 799px) {
+    .animated-div {
+        animation: rotate 6s infinite alternate, color 4s infinite alternate;
+    }
+    body{
+        background: linear-gradient(to bottom right, blue, violet);
+        animation: body-color 5s infinite alternate;
+    }
+   
+
+    @keyframes color{
+        0% {background-color:violet;}
+        25%{background-color: blue;}
+        50% {background-color: blueviolet;}
+        25% {background-color: blue;}
+        0% {background-color: violet;}
+    }
+
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+}
+
+@media (min-width: 800px) and (max-width: 999px) {
+    .animated-div {
+        width: 150px;
+        height: 100px;
+        animation: move 4s infinite alternate;
+        background:  repeating-linear-gradient(45deg in oklab, blue, green 100px);
+    }
+
+    body{
+        background:radial-gradient(green, blue);
+    }
+
+    @keyframes move {
+        0% { transform: scale(1); }
+        100% { transform: scale (2); }
+    }
+}
+@media (min-width: 1000px) and (max-width: 1199px) {
+    .animated-div {
+        border-radius: 50%;
+        width: 500px;
+        height: 400px;
+        animation: bounce 3s infinite alternate;
+        background-image: radial-gradient(green, yellow);
+        align-items: center;
+    }
+    body{
+        background: radial-gradient( yellow, green);
+    }
+
+    @keyframes bounce {
+        0%, 50% { transform:scale(1) translateY(-30px); }
+        50%{ transform: scale(2) translateY(-30px); }
+    }
+}
+@media (min-width: 1200px) {
+    .animated-div {
+        width: 1000px;
+        height: 650px;
+        animation: flip 4s infinite linear;
+        background-image: linear-gradient(180deg, red, yellow);
+    }
+    body{
+        background: linear-gradient(180deg, red, yellow);
+    }
+
+    @keyframes flip {
+        0% { transform: rotateX(0);}
+        100% {transform: rotateY(360deg);}
+        0% { transform: rotateY(0); }
+        100% { transform: rotateX(360deg);}
+      
+    }
+
+}
+
+
+</style>
+</head>
+<body>
+    <div class="animated-div"></div>
+    <div class="container">
+        <div class="footer-text">You are loved.</div>
+    </div>
+
+</body>
+</html>
